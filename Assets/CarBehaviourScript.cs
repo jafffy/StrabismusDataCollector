@@ -7,6 +7,8 @@ using UnityEngine;
 public class CarBehaviourScript : MonoBehaviour {
     public FoveInterface foveInterface;
 
+    public string patientID;
+
     public GameObject leftEye;
     public GameObject rightEye;
 
@@ -70,6 +72,15 @@ public class CarBehaviourScript : MonoBehaviour {
 			if (_shouldEyeDarkTimer > 3.0f) {
 				_shouldEyeDarkTimer = 0.0f;
 				_shouldLeftEyeDark = !_shouldLeftEyeDark;
+
+                if (_shouldLeftEyeDark)
+                {
+                    print("left flick");
+                }
+                else
+                {
+                    print("right flick");
+                }
 			}
 		} else {
 			float speed = 20;
@@ -120,7 +131,7 @@ public class CarBehaviourScript : MonoBehaviour {
 
         if (SaveTimer > 1.0f)
         {
-            string leftPath = "Assets/left.csv";
+            string leftPath = "Assets/" + patientID + "_left.csv";
 
             using (var writer = new StreamWriter(leftPath, append: true))
             {
@@ -145,7 +156,7 @@ public class CarBehaviourScript : MonoBehaviour {
                 _leftRecords.Clear();
             }
 
-            string rightPath = "Assets/right.csv";
+            string rightPath = "Assets/" + patientID + "_right.csv";
             using (var writer = new StreamWriter(rightPath, append: true))
             {
                 foreach (EyeTrackingRecord record in _rightRecords)
