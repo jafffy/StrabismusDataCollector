@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foveInterface: {fileID: 1035879141}
-  patientID: 
+  patientID: "\uAC04\uD5D0\uC801\uC678\uC0AC\uC2DC"
   leftEye: {fileID: 233091358}
   rightEye: {fileID: 1216722101}
   Timer: 0
